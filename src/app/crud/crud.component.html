@@ -1,0 +1,86 @@
+<div class="container my-5">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add New Menu Item
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form >
+                <div class="mb-1">
+                  <label for="Input1" class="form-label">Name</label>
+                  <input type="email" class="form-control" id="Input1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-2">
+                  <label for="Input2" class="form-label">Origin</label>
+                  <input type="text" class="form-control" id="Input2">
+                </div>
+                <div class="mb-2">
+                  <label for="Input3" class="form-label">Price in $</label>
+                  <input type="number" class="form-control" id="Input3">
+                </div>  
+                <div class="mb-2">
+                  <label for="Input4" class="form-label">Cook Time</label>
+                  <input type="text" class="form-control" id="Input4">
+                </div>
+                <div class="mb-2">
+                  <label for="Input5" class="form-label">Rating</label>
+                  <input type="  " class="form-control" id="Input5">
+                </div>
+                <div class="mb-2">
+                  <label for="Input5" class="form-label">Tags</label>
+                  <input type="  " class="form-control" id="Input5">
+                </div>
+                <div class="mb-2 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Favorite</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">FAVORITE</th>
+        <th scope="col">RATING</th>
+        <th scope="col">COOK TIME </th>
+        <th scope="col">PRICE</th>
+        <th scope="col">ORIGINS</th>
+        <th scope="col">TAGS</th>
+        <th scope="col">OPERATIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>
+            <button class=" btn btn-success m-2">Edit</button>
+            <button class=" btn btn-danger m-2">Delete</button>
+        </td>
+ 
+      </tr>
+     
+    </tbody>
+  </table>
