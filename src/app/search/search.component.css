@@ -4,7 +4,10 @@ div{
     margin-top: 3rem;
     margin-bottom: 1.5rem;
 }
-
+.srtext
+{
+    color: #ac2020;
+}
 div input{
     border-radius: 10rem 0 0 10rem;
     border: none;
@@ -19,7 +22,7 @@ div input{
 }
 
 div button{
-    color: grey;
+    color: red;
     height: 3rem;
     width: 5rem;
     font-size: 1rem;

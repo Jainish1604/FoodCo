@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +11,8 @@ import { FoodPageComponent } from './food-page/food-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CrudComponent } from './crud/crud.component';
+import { HttpClientModule} from '@angular/common/http'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,12 @@ import { CrudComponent } from './crud/crud.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([]),
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

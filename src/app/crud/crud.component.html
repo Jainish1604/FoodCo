@@ -10,40 +10,52 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" (click)="getAllFoodItems()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form >
+            <form [formGroup]="form" >
                 <div class="mb-1">
                   <label for="Input1" class="form-label">Name</label>
-                  <input type="email" class="form-control" id="Input1" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" formControlName="name" id="Input1">
+                </div>
+                <div class="mb-1">
+                  <label for="Input7" class="form-label">Image Url</label>
+                  <input type="text" class="form-control" formControlName="imageUrl" [value]="'/assest/img.jpg'" id="Input7">
                 </div>
                 <div class="mb-2">
                   <label for="Input2" class="form-label">Origin</label>
-                  <input type="text" class="form-control" id="Input2">
+                  <input type="text"  class="form-control" formControlName="origins" id="Input2">
                 </div>
                 <div class="mb-2">
                   <label for="Input3" class="form-label">Price in $</label>
-                  <input type="number" class="form-control" id="Input3">
+                  <input type="number" class="form-control" formControlName="price" id="Input3">
                 </div>  
                 <div class="mb-2">
                   <label for="Input4" class="form-label">Cook Time</label>
-                  <input type="text" class="form-control" id="Input4">
+                  <input type="text" class="form-control" formControlName="cookTime" id="Input4">
                 </div>
                 <div class="mb-2">
                   <label for="Input5" class="form-label">Rating</label>
-                  <input type="  " class="form-control" id="Input5">
+                  <select  formControlName="stars" class="form-control" id="Input5">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                 </div>
                 <div class="mb-2">
-                  <label for="Input5" class="form-label">Tags</label>
-                  <input type="  " class="form-control" id="Input5">
+                  <label for="Input6" class="form-label">Tags</label>
+                  <input type="text" class="form-control" formControlName="tags" id="Input6">
                 </div>
                 <div class="mb-2 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Favorite</label>
+                  <input type="checkbox" class="form-check-input" formControlName="favorite" id="exampleCheck1">
+                  <label class="form-check-label"  for="exampleCheck1">Favorite</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+                <button type="submit" (click)="addFood()" class="btn btn-primary" >Submit</button>
+                <button type="submit" (click)="UpdatefoodDetails()" class="btn btn-primary" >Update</button>
+             
+                <button type="button" (click)="getAllFoodItems()" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
               </form>
         </div>
       </div>
@@ -55,6 +67,7 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
+        <th scope="col">Image</th>
         <th scope="col">NAME</th>
         <th scope="col">FAVORITE</th>
         <th scope="col">RATING</th>
@@ -66,18 +79,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let food of foodlist,index as i">
+        <th scope="row">{{food.id}}</th>
+        <td> <img width="50px" src="{{food.imageUrl}}" alt=""></td>
+        <td>{{food.name}}</td>
+        <td>{{food.favorite}}</td>
+        <td>{{food.stars}}</td>
+        <td>{{food.cookTime}}</td>
+        <td>{{food.price|currency}}</td>
+        <td >
+          {{food.origins}}
+        </td>
+        <td >
+         {{food.tags}}
+        </td>
+    
         <td>
-            <button class=" btn btn-success m-2">Edit</button>
-            <button class=" btn btn-danger m-2">Delete</button>
+            <button (click)="Edit(food)"  class=" btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            <a class=" btn btn-danger m-2" (click)="delete(food.id)">Delete</a>
         </td>
  
       </tr>
