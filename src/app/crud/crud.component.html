@@ -1,6 +1,6 @@
 <div class="container my-5">
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button (click)="switch()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add New Menu Item
   </button>
   
@@ -9,7 +9,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title"  id="exampleModalLabel">Add a item</h5>
           <button type="button" (click)="getAllFoodItems()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -52,8 +52,16 @@
                   <input type="checkbox" class="form-check-input" formControlName="favorite" id="exampleCheck1">
                   <label class="form-check-label"  for="exampleCheck1">Favorite</label>
                 </div>
-                <button type="submit" (click)="addFood()" class="btn btn-primary" >Submit</button>
-                <button type="submit" (click)="UpdatefoodDetails()" class="btn btn-primary" >Update</button>
+                <ng-container *ngIf="Editmode; else elseTemplate">
+                  
+                  <button type="submit" (click)="UpdatefoodDetails()" class="btn btn-primary" >Update</button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  
+                  <button type="submit" (click)="addFood()" class="btn btn-primary" >Submit</button>
+                </ng-template>
+     
+
              
                 <button type="button" (click)="getAllFoodItems()" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
               </form>

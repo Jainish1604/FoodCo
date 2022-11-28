@@ -64,6 +64,15 @@ img{
     border-radius: 2rem;
     background-color: rgb(235, 235, 235);
 }
+.details .Tags > span{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.2rem;
+    margin: .5rem .5rem .5rem 0;
+    border-radius: 2rem;
+    color: rgb(129, 0, 0);
+    background-color: rgb(235, 235, 235);
+}
 
 .details .cook-time{
     margin-top: 1rem;

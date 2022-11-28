@@ -36,6 +36,10 @@ export class CrudComponent implements OnInit {
     });
   }
 
+  switch(){
+    this.Editmode=false
+      
+  }
     getAllFoodItems() {
       this.Editmode=false
     this.api.getFood().subscribe({
@@ -45,8 +49,8 @@ export class CrudComponent implements OnInit {
     });
   }
 
-  addFood() {
-
+  addFood() {   
+   
     if (this.form.valid) {
       this.api.postFood(this.form.value).subscribe({
         next: (res) => {
@@ -85,10 +89,11 @@ export class CrudComponent implements OnInit {
     this.form.controls['tags'].setValue(row.tags);
     this.form.controls['cookTime'].setValue(row.cookTime);
     this.form.controls['favorite'].setValue(row.favorite);
+    this.Editmode=true
+    console.log(this.Editmode)
   }
 
   UpdatefoodDetails() {
-    this.Editmode=true
     this.Crudobj.name = this.form.value.name;
     this.Crudobj.imageUrl = this.form.value.imageUrl;
     this.Crudobj.origins = this.form.value.origins;

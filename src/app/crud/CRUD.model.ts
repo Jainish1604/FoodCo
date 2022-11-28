@@ -4,8 +4,8 @@ export class CRUD{
      price: number = 0;
     cookTime!: string;
     favorite: boolean =false;
-    origins!: [];
+    origins!: string;
     stars: number=0;
     imageUrl!:string;
-    tags!: []
+    tags!: string
     }

@@ -10,12 +10,12 @@ import { Tag } from '../shared/models/Tag';
 export class TagsComponent implements OnInit {
 
   @Input()
-  foodPageTags?:string[];
+  foodPageTags?:string;
 
   @Input()
   justifyContent:string = 'center';
 
-  tags?:Tag[];
+  tags!:Tag[];
   constructor(private foodService:FoodService) { }
 
   ngOnInit(): void {

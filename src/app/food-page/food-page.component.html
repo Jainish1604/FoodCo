@@ -17,13 +17,17 @@
         </div>
 
         <div class="origins">
-            <span *ngFor="let origin of food.origins">
-                {{origin}}
-            </span>
+          
+          <span>
+              {{ food.origins}}
+          </span>
+          
         </div>
 
-        <div class="tags">
-            <app-tags [foodPageTags]="food.tags" justifyContent="start"></app-tags>
+        <div class="Tags">
+            <span>
+                {{food.tags}}
+            </span>
         </div>
 
         <div class="cook-time">

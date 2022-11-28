@@ -1,5 +1,6 @@
 
 ul{
+    margin-top:50px ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,10 +20,13 @@ ul li a{
     flex-direction: column;
     overflow: hidden;
     color: #e40b0b;
+    transition: all 1s;
+    transform: 3s;
 }
 li a:hover{
     opacity: 0.9;
     cursor: pointer;
+    transform: scale(1.1,1.1);
 }
 
 .content{

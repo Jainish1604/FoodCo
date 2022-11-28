@@ -8,74 +8,85 @@
       "name": "Pizza",
       "imageUrl": "/assets/pizza1.jpg",
       "origins": "India",
-      "tags": "Pizza,FastFood",
+      "tags": "Pizza",
       "cookTime": "10-20"
     },
     {
-      "id": 2,
-      "price": 10,
-      "favorite": true,
-      "stars": "4",
-      "name": "Peperoni Pizza",
-      "imageUrl": "/assets/pizza3.jpg",
-      "origins": "India",
-      "tags": "Pizza,FastFood",
-      "cookTime": "10-20"
-    },
-    {
-      "name": "Cheezie Pizza",
+      "name": "Pizza",
       "imageUrl": "/assets/pizza2.jpg",
-      "origins": "India",
+      "origins": "Spain",
       "tags": "Pizza,FastFood",
-      "price": 10,
-      "cookTime": "10-20",
-      "stars": "4",
-      "favorite": true,
-      "id": 3
-    },
-    {
-      "id": 4,
-      "price": 15,
-      "favorite": false,
-      "stars": "2",
-      "name": "Salad",
-      "imageUrl": "/assets/salad2.jpg",
-      "origins": "India",
-      "tags": "Salad",
-      "cookTime": "20-30"
-    },
-    {
-      "id": 5,
-      "price": 8,
-      "favorite": false,
-      "stars": "2",
-      "name": "Fruit Salad",
-      "imageUrl": "/assets/salad1.jpg",
-      "origins": "Sapin",
-      "tags": "Salad",
-      "cookTime": "10-20"
-    },
-    {
-      "name": "Salad",
-      "imageUrl": "/assets/salad3.jpg",
-      "origins": "Sapin",
-      "tags": "Salad",
-      "price": 9,
-      "cookTime": "10-20",
-      "stars": "3",
-      "favorite": false,
-      "id": 6
-    },
-    {
-      "name": "Rajma Chawal",
-      "imageUrl": "/assets/rajma.jpg",
-      "origins": "India",
-      "tags": "Lunch",
       "price": 12,
       "cookTime": "20-30",
       "stars": "4",
       "favorite": true,
-      "id": 7
+      "id": 2
+    },
+    {
+      "name": "Pizza",
+      "imageUrl": "/assets/pizza3.jpg",
+      "origins": "Brazil",
+      "tags": "Pizza,FastFood",
+      "price": 15,
+      "cookTime": "20-40",
+      "stars": "5",
+      "favorite": true,
+      "id": 3
+    },
+    {
+      "name": "Salad",
+      "imageUrl": "/assets/salad3.jpg",
+      "origins": "Italy",
+      "tags": "Salad,Healthy",
+      "price": 6,
+      "cookTime": "10-20",
+      "stars": "2",
+      "favorite": false,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "price": 10,
+      "favorite": false,
+      "stars": "2",
+      "name": "Salad 2",
+      "imageUrl": "/assets/salad2.jpg",
+      "origins": "Italy, Spain",
+      "tags": "Salad,Healthy",
+      "cookTime": "10-20"
+    },
+    {
+      "id": 6,
+      "price": 10,
+      "favorite": true,
+      "stars": "3",
+      "name": "Salad",
+      "imageUrl": "/assets/salad1.jpg",
+      "origins": "India",
+      "tags": "Healthy",
+      "cookTime": "10-20"
+    },
+    {
+      "id": 7,
+      "price": 12,
+      "favorite": true,
+      "stars": "4",
+      "name": "Rajma Chawal",
+      "imageUrl": "/assets/rajma.jpg",
+      "origins": "India",
+      "tags": "Fried,Lunch",
+      "cookTime": "10-20"
+    },
+    {
+      "id": 8,
+      "price": 6,
+      "favorite": true,
+      "stars": "4",
+      "name": "Tomato Soup",
+      "imageUrl": "/assets/soup1.jpg",
+      "origins": "Asia",
+      "tags": "Soup",
+      "cookTime": "20-30"
     }
   ]
 }

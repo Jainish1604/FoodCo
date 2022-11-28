@@ -43,9 +43,7 @@
                </div>
                 <div class="product-item-footer">
                     <div class="origins">
-                        <span *ngFor="let origin of food.origins">
-                             {{origin}}
-                        </span>
+                             {{food.origin}}
                     </div>
                     <div class="cook-time">
                         <span>🕒</span>
@@ -55,6 +53,11 @@
                 <div class="price">
                     <span>
                         {{food.price|currency}}
+                    </span>
+                </div>
+                <div class="small bg-secondary rounded m-3 text-center text-light">
+                    <span>
+                        {{food.tags}}
                     </span>
                 </div>
             </div>

@@ -1,32 +1,36 @@
-div{
+.search{
     display: flex;
     justify-content: center;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
 }
-.srtext
-{
-    color: #ac2020;
+ul{
+    margin-top:50px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
 }
 div input{
     border-radius: 10rem 0 0 10rem;
     border: none;
     height: 3rem;
     width: 20rem;
-    background-color: #ffd8d8;
+    background-color: #f1f1f1;
     padding: 1.2rem;
-    padding-right: 10rem;
     font-size: 1rem;
     font-weight: 500;
     outline: none;
 }
 
 div button{
-    color: red;
+    color: grey;
     height: 3rem;
     width: 5rem;
     font-size: 1rem;
-    border-radius: 0 2rem 2rem 0;
+    border-radius: 0 10rem 10rem 0;
     border: none;
     background-color: #e72929;
     color: white;
@@ -34,7 +38,74 @@ div button{
     outline: none;
 }
 
-div button:hover{
-    opacity: 1;
+ul li a{
+    background: #ffffff;
+    height: 30.5rem;
+    width: 20rem;
+    border: 1px solid rgb(167, 167, 167);
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #e40b0b;
+    transition: all 1s;
+    transform: 3s;
+}
+li a:hover{
+    opacity: 0.9;
     cursor: pointer;
+    transform: scale(1.1,1.1);
+}
+
+.content{
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.favorite{
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.favorite.not{
+    color: grey;
+}
+
+.stars{
+    margin-bottom: .2rem;
+}
+
+.product-item-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.origins{
+    flex: 9;
+}
+
+.origins span{
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(99, 99, 99);
+    margin-right: .3rem;
+}
+
+.cook-time{
+    font-size: .8rem;
+    flex: 3;
+    text-align: right;
+}
+
+.price{
+    color:#414141;
+    margin-top: .7rem;
 }
