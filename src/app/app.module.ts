@@ -13,6 +13,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CrudComponent } from './crud/crud.component';
 import { HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
+import {ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() 
   ],
   providers: [],
 

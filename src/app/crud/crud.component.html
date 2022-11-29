@@ -1,113 +1,146 @@
 <div class="container my-5">
-    <!-- Button trigger modal -->
-<button (click)="switch()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <!-- Button trigger modal -->
+  <button (click)="switch()" type="button" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
     Add New Menu Item
   </button>
-  
-  <!-- Modal -->
+
+  <!--  Add and updata data Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"  id="exampleModalLabel">Add a item</h5>
-          <button type="button" (click)="getAllFoodItems()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Add a item</h5>
+          <button type="button" (click)="getAllFoodItems()" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="form" >
-                <div class="mb-1">
-                  <label for="Input1" class="form-label">Name</label>
-                  <input type="text" class="form-control" formControlName="name" id="Input1">
-                </div>
-                <div class="mb-1">
-                  <label for="Input7" class="form-label">Image Url</label>
-                  <input type="text" class="form-control" formControlName="imageUrl" [value]="'/assest/img.jpg'" id="Input7">
-                </div>
-                <div class="mb-2">
-                  <label for="Input2" class="form-label">Origin</label>
-                  <input type="text"  class="form-control" formControlName="origins" id="Input2">
-                </div>
-                <div class="mb-2">
-                  <label for="Input3" class="form-label">Price in $</label>
-                  <input type="number" class="form-control" formControlName="price" id="Input3">
-                </div>  
-                <div class="mb-2">
-                  <label for="Input4" class="form-label">Cook Time</label>
-                  <input type="text" class="form-control" formControlName="cookTime" id="Input4">
-                </div>
-                <div class="mb-2">
-                  <label for="Input5" class="form-label">Rating</label>
-                  <select  formControlName="stars" class="form-control" id="Input5">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </div>
-                <div class="mb-2">
-                  <label for="Input6" class="form-label">Tags</label>
-                  <input type="text" class="form-control" formControlName="tags" id="Input6">
-                </div>
-                <div class="mb-2 form-check">
-                  <input type="checkbox" class="form-check-input" formControlName="favorite" id="exampleCheck1">
-                  <label class="form-check-label"  for="exampleCheck1">Favorite</label>
-                </div>
-                <ng-container *ngIf="Editmode; else elseTemplate">
-                  
-                  <button type="submit" (click)="UpdatefoodDetails()" class="btn btn-primary" >Update</button>
-                </ng-container>
-                <ng-template #elseTemplate>
-                  
-                  <button type="submit" (click)="addFood()" class="btn btn-primary" >Submit</button>
-                </ng-template>
-     
+          <form [formGroup]="form">
+            <div class="mb-1">
+              <label for="Input1" class="form-label">Name</label>
+              <input type="text" class="form-control" formControlName="name" id="Input1" />
+            </div>
+            <div class="mb-1">
+              <label for="Input7" class="form-label">Image Url</label>
+              <input type="text" class="form-control" formControlName="imageUrl" [value]="'/assest/img.jpg'"
+                id="Input7" />
+            </div>
+            <div class="mb-2">
+              <label for="Input2" class="form-label">Origin</label>
+              <input type="text" class="form-control" formControlName="origins" id="Input2" />
+            </div>
+            <div class="mb-2">
+              <label for="Input3" class="form-label">Price in $</label>
+              <input type="number" class="form-control" formControlName="price" id="Input3" />
+            </div>
+            <div class="mb-2">
+              <label for="Input4" class="form-label">Cook Time</label>
+              <input type="text" class="form-control" formControlName="cookTime" id="Input4" />
+            </div>
+            <div class="mb-2">
+              <label for="Input5" class="form-label">Rating</label>
+              <select formControlName="stars" class="form-control" id="Input5">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="Input6" class="form-label">Tags</label>
+              <input type="text" class="form-control" formControlName="tags" id="Input6" />
+            </div>
+            <div class="mb-2 form-check">
+              <input type="checkbox" class="form-check-input" formControlName="favorite" id="exampleCheck1" />
+              <label class="form-check-label" for="exampleCheck1">Favorite</label>
+            </div>
+            <ng-container *ngIf="Editmode; else elseTemplate">
+              <button type="submit" (click)="UpdatefoodDetails()" class="btn btn-primary" data-bs-dismiss="modal">
+                Update
+              </button>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <button type="submit" (click)="addFood()" class="btn btn-primary" data-bs-dismiss="modal">
+                Submit
+              </button>
+            </ng-template>
 
-             
-                <button type="button" (click)="getAllFoodItems()" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
-              </form>
+            <button type="button" (click)="getAllFoodItems()" class="btn btn-secondary m-2" data-bs-dismiss="modal">
+              Close
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- Delete Modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Image</th>
-        <th scope="col">NAME</th>
-        <th scope="col">FAVORITE</th>
-        <th scope="col">RATING</th>
-        <th scope="col">COOK TIME </th>
-        <th scope="col">PRICE</th>
-        <th scope="col">ORIGINS</th>
-        <th scope="col">TAGS</th>
-        <th scope="col">OPERATIONS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let food of foodlist,index as i">
-        <th scope="row">{{food.id}}</th>
-        <td> <img width="50px" src="{{food.imageUrl}}" alt=""></td>
-        <td>{{food.name}}</td>
-        <td>{{food.favorite}}</td>
-        <td>{{food.stars}}</td>
-        <td>{{food.cookTime}}</td>
-        <td>{{food.price|currency}}</td>
-        <td >
-          {{food.origins}}
-        </td>
-        <td >
-         {{food.tags}}
-        </td>
-    
-        <td>
-            <button (click)="Edit(food)"  class=" btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-            <a class=" btn btn-danger m-2" (click)="delete(food.id)">Delete</a>
-        </td>
- 
-      </tr>
-     
-    </tbody>
-  </table>
+  <!-- Modal -->
+</div>
+<table class="table m-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Image</th>
+      <th scope="col">NAME</th>
+      <th scope="col">FAVORITE</th>
+      <th scope="col">RATING</th>
+      <th scope="col">COOK TIME</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">ORIGINS</th>
+      <th scope="col">TAGS</th>
+      <th scope="col">OPERATIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let food of foodlist; index as i">
+      <th scope="row">{{ food.id }}</th>
+      <td><img width="100px" src="{{ food.imageUrl }}" alt="" /></td>
+      <td>{{ food.name }}</td>
+      <td>{{ food.favorite }}</td>
+      <td>{{ food.stars }}</td>
+      <td>{{ food.cookTime }} Min</td>
+      <td>{{ food.price | currency }}</td>
+      <td>
+        {{ food.origins }}
+      </td>
+      <td>
+        {{ food.tags }}
+      </td>
+
+      <td>
+        <button (click)="Edit(food)" class="btn btn-success m-2" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          Edit
+        </button>
+
+        <a class="btn btn-danger m-2"  data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop" (click)="delete(food.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

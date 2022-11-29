@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { FoodService } from '../services/food/food.service';
+import { NotificationService } from '../services/notification.service';
 import { Food } from '../shared/models/Food';
 import { CRUD } from './CRUD.model';
 
@@ -17,10 +18,11 @@ import { CRUD } from './CRUD.model';
 export class CrudComponent implements OnInit {
   form!: FormGroup;
   foodlist: any;
-  Editmode:boolean=false
+  Editmode: boolean = false;
+  deleteConfirm :string =''
 
   Crudobj: CRUD = new CRUD();
-  constructor(private Fb: FormBuilder, private api: FoodService) {
+  constructor(private Fb: FormBuilder, private api: FoodService,private notify:NotificationService) {
     this.getAllFoodItems();
   }
   ngOnInit(): void {
@@ -36,12 +38,11 @@ export class CrudComponent implements OnInit {
     });
   }
 
-  switch(){
-    this.Editmode=false
-      
+  switch() {
+    this.Editmode = false;
   }
-    getAllFoodItems() {
-      this.Editmode=false
+  getAllFoodItems() {
+    this.Editmode = false;
     this.api.getFood().subscribe({
       next: (res: any) => {
         this.foodlist = res;
@@ -49,8 +50,7 @@ export class CrudComponent implements OnInit {
     });
   }
 
-  addFood() {   
-   
+  addFood() {
     if (this.form.valid) {
       this.api.postFood(this.form.value).subscribe({
         next: (res) => {
@@ -70,13 +70,21 @@ export class CrudComponent implements OnInit {
     }
   }
 
+
+  successmsg(){
+    this.notify.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")}
+// Delete Record
+
   delete(id: number) {
-    this.api.deletefood(id).subscribe((data: any) => {
-      alert('Value at id ' + id + ' is deleted');
-      this.api.getFood().subscribe((res) => {
-        this.foodlist = res;
+    if(this.deleteConfirm=='Yes'){
+      this.api.deletefood(id).subscribe((data: any) => {
+        this.successmsg()
+        this.api.getFood().subscribe((res) => {
+          this.foodlist = res;
+
+        });
       });
-    });
+    }
   }
 
   Edit(row: any) {
@@ -89,8 +97,8 @@ export class CrudComponent implements OnInit {
     this.form.controls['tags'].setValue(row.tags);
     this.form.controls['cookTime'].setValue(row.cookTime);
     this.form.controls['favorite'].setValue(row.favorite);
-    this.Editmode=true
-    console.log(this.Editmode)
+    this.Editmode = true;
+    console.log(this.Editmode);
   }
 
   UpdatefoodDetails() {
@@ -103,9 +111,9 @@ export class CrudComponent implements OnInit {
     this.Crudobj.cookTime = this.form.value.cookTime;
     this.Crudobj.favorite = this.form.value.favorite;
     this.api.Updatefood(this.Crudobj, this.Crudobj.id).subscribe((res) => {
-      alert('Record updated Sucessfully');
+      // alert('Record updated Sucessfully');
+      this.getAllFoodItems();
+      this.form.reset();
     });
-    this.getAllFoodItems();
-    this.form.reset()
   }
 }
