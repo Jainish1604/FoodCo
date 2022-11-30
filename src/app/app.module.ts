@@ -15,6 +15,7 @@ import { HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import {ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
 
 
 
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FoodPageComponent,
     CartPageComponent,
     NotFoundComponent,
-    CrudComponent
+    CrudComponent,
+    AddFoodItemComponent
   ],
   imports: [
     BrowserModule,

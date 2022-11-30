@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { CartService } from '../services/cart/cart.service';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';
@@ -10,7 +11,7 @@ import { CartItem } from '../shared/models/CartItem';
 })
 export class CartPageComponent implements OnInit {
   cart!:Cart;
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService ) { 
     this.setCart();
   }
   ngOnInit(): void {
@@ -18,6 +19,10 @@ export class CartPageComponent implements OnInit {
 
   removeFromCart(cartItem:CartItem){
     this.cartService.removeFromCart(cartItem.food.id);
+    this.setCart();
+  }
+  placedFromCart(){
+    this.cartService.placedFromCart();
     this.setCart();
   }
 
@@ -29,6 +34,16 @@ export class CartPageComponent implements OnInit {
 
   setCart(){
     this.cart = this.cartService.getCart();
+  }
+  placeOrder(F:NgForm){
+    if(F.value.name && F.value.email && F.value.address !== ''){
+      this.cartService.confirmOrder(F.value.name)
+      F.reset()
+    }else{
+      this.cartService.invlaidForm()
+      // console.warn(F.value.name, F.value.email , F.value.address )
+    }
+  
   }
 
 }

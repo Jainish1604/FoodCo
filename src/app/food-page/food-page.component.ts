@@ -23,7 +23,7 @@ export class FoodPageComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.foodService.getFoodbyID(this.id).subscribe((data:any) => {
       this.food=data
-      console.warn(data);
+      // console.warn(data);
     });
 
   }

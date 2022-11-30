@@ -4,10 +4,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { FoodService } from '../services/food/food.service';
 import { NotificationService } from '../services/notification.service';
-import { Food } from '../shared/models/Food';
 import { CRUD } from './CRUD.model';
 
 @Component({
@@ -20,7 +18,6 @@ export class CrudComponent implements OnInit {
   foodlist: any;
   Editmode: boolean = false;
   deleteConfirm :string =''
-
   Crudobj: CRUD = new CRUD();
   constructor(private Fb: FormBuilder, private api: FoodService,private notify:NotificationService) {
     this.getAllFoodItems();
@@ -54,7 +51,8 @@ export class CrudComponent implements OnInit {
     if (this.form.valid) {
       this.api.postFood(this.form.value).subscribe({
         next: (res) => {
-          alert('Food item  Added Successfully');
+          this.notify.showSuccess("Food item  Added Successfully", "FoodMine")
+      
           this.api.getFood().subscribe((res) => {
             this.foodlist = res;
           });
@@ -66,26 +64,28 @@ export class CrudComponent implements OnInit {
       this.form.reset();
       this.getAllFoodItems();
     } else {
-      alert('Fill the form');
+      this.notify.showError("Please fill the form", "FoodMine")
     }
   }
 
+    // this.notify.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
+    // this.notify.showError("Data shown successfully !!", "ItSolutionStuff.com")
+    // this.notify.showWarning("Data shown successfully !!", "ItSolutionStuff.com")
+    // this.notify.showInfo("Data shown successfully !!", "ItSolutionStuff.com")
 
-  successmsg(){
-    this.notify.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")}
 // Delete Record
 
   delete(id: number) {
-    if(this.deleteConfirm=='Yes'){
-      this.api.deletefood(id).subscribe((data: any) => {
-        this.successmsg()
-        this.api.getFood().subscribe((res) => {
-          this.foodlist = res;
-
+    if(window.confirm('Are sure you want to delete this item ?')){
+        this.api.deletefood(id).subscribe((data: any) => {
+          this.notify.showSuccess("Data Deleted Successfully", "FoodMine")
+          this.api.getFood().subscribe((res) => {
+            this.foodlist = res;
+          });
         });
-      });
+        
+      }
     }
-  }
 
   Edit(row: any) {
     this.Crudobj.id = row.id;

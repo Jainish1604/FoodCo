@@ -1,0 +1,73 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <form [formGroup]="AddFoodForm"> 
+            <div class="mb-1">
+                <label for="Input1" class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name" id="Input1" />
+              </div>
+              <div class="mb-1">
+                <label for="Input7" class="form-label">Image Url</label>
+                <input type="text" class="form-control" formControlName="imageUrl" [value]="'/assest/img.jpg'"
+                  id="Input7" />
+              </div>
+              <div class="mb-2">
+                <label for="Input2" class="form-label">Origin</label>
+                <input type="text" class="form-control" formControlName="origins" id="Input2" />
+              </div>
+              <div class="mb-2">
+                <label for="Input3" class="form-label">Price in $</label>
+                <input type="number" class="form-control" formControlName="price" id="Input3" />
+              </div>
+              <div class="mb-2">
+                <label for="Input4" class="form-label">Cook Time</label>
+                <input type="text" class="form-control" formControlName="cookTime" id="Input4" />
+              </div>
+              <div class="mb-2">
+                <label for="Input5" class="form-label">Rating</label>
+                <select formControlName="stars" class="form-control" id="Input5">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label for="Input6" class="form-label">Tags</label>
+                <input type="text" class="form-control" formControlName="tags" id="Input6" />
+              </div>
+              <div class="mb-2 form-check">
+                <input type="checkbox" class="form-check-input" formControlName="favorite" id="exampleCheck1" />
+                <label class="form-check-label" for="exampleCheck1">Favorite</label>
+              </div>
+          
+              <div>
+                <button type="submit"  class="btn btn-primary" data-bs-dismiss="modal">
+                  Submit
+                </button>
+                
+                <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">
+                    Close
+                </button>
+            </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
