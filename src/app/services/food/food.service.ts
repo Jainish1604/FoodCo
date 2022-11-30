@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Tag } from 'src/app/shared/models/Tag';
-import { Food } from 'src/app/shared/models/Food';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class FoodService {
-
-
-
-url="http://localhost:5000/FoodItem"
+url=environment.apiURL
 
   constructor(private http:HttpClient) {
   }

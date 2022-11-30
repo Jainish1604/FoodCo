@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import {ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
+import { EditFoodDetailsComponent } from './edit-food-details/edit-food-details.component';
 
 
 
@@ -31,7 +32,8 @@ import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
     CartPageComponent,
     NotFoundComponent,
     CrudComponent,
-    AddFoodItemComponent
+    AddFoodItemComponent,
+    EditFoodDetailsComponent
   ],
   imports: [
     BrowserModule,

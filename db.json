@@ -23,15 +23,26 @@
       "id": 2
     },
     {
-      "id": 3,
-      "price": 20,
+      "name": "Salad",
+      "imageUrl": "assets/salad1.jpg",
+      "origins": "Spain",
+      "tags": "asdf",
+      "price": 2,
+      "cookTime": "asdf",
+      "stars": "2",
       "favorite": true,
-      "stars": "5",
-      "name": "Pepperoni Pizza",
-      "imageUrl": "/assets/pizza3.jpg",
-      "origins": "USA",
-      "tags": "Pizza,Fastfood",
-      "cookTime": "20-30"
+      "id": 5
+    },
+    {
+      "name": "Salad2",
+      "imageUrl": "/assest/salad2.jpg",
+      "origins": "Brazil",
+      "tags": "Food,Salad",
+      "price": 10,
+      "cookTime": "10-20",
+      "stars": "4",
+      "favorite": true,
+      "id": 6
     }
   ]
 }

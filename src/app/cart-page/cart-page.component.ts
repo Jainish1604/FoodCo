@@ -38,10 +38,10 @@ export class CartPageComponent implements OnInit {
   placeOrder(F:NgForm){
     if(F.value.name && F.value.email && F.value.address !== ''){
       this.cartService.confirmOrder(F.value.name)
+      this.placedFromCart()
       F.reset()
     }else{
       this.cartService.invlaidForm()
-      // console.warn(F.value.name, F.value.email , F.value.address )
     }
   
   }
