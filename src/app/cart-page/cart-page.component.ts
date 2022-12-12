@@ -10,40 +10,40 @@ import { CartItem } from '../shared/models/CartItem';
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent implements OnInit {
-  cart!:Cart;
-  constructor(private cartService: CartService ) { 
+  cart!: Cart;
+  constructor(private cartService: CartService) {
     this.setCart();
   }
   ngOnInit(): void {
   }
 
-  removeFromCart(cartItem:CartItem){
+  removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.food.id);
     this.setCart();
   }
-  placedFromCart(){
+  placedFromCart() {
     this.cartService.placedFromCart();
     this.setCart();
   }
 
-  changeQuantity(cartItem:CartItem, quantityInString:string){
-    const quantity= parseInt(quantityInString);
+  changeQuantity(cartItem: CartItem, quantityInString: string) {
+    const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.food.id, quantity);
     this.setCart();
   }
 
-  setCart(){
+  setCart() {
     this.cart = this.cartService.getCart();
   }
-  placeOrder(F:NgForm){
-    if(F.value.name && F.value.email && F.value.address !== ''){
+  placeOrder(F: NgForm) {
+    if (F.value.name && F.value.email && F.value.address !== '') {
       this.cartService.confirmOrder(F.value.name)
       this.placedFromCart()
       F.reset()
-    }else{
+    } else {
       this.cartService.invlaidForm()
     }
-  
+
   }
 
 }

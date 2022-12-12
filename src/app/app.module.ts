@@ -18,8 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

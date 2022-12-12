@@ -1,45 +1,40 @@
- <div class="container my-5">
-
+<div class="container my-5">
   <app-add-food-item></app-add-food-item>
 </div>
-  
-<div class="container-fluid">
 
+<div class="container-fluid">
   <!-- Modal -->
   <table class="table m-5">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Image</th>
-      <th scope="col">NAME</th>
-      <th scope="col">FAVORITE</th>
-      <th scope="col">RATING</th>
-      <th scope="col">COOK TIME</th>
-      <th scope="col">PRICE</th>
-      <th scope="col">ORIGINS</th>
-      <th scope="col">TAGS</th>
-      <th scope="col">OPERATIONS</th>
-    </tr>
-  </thead>
-  <tbody> 
-    <tr *ngFor="let food of foodlist;">
-      <th scope="row">{{ food.id }}</th>
-      <td><img width="50px" src="{{ food.imageUrl }}" alt="" /></td>
-      <td>{{ food.name }}</td>
-      <td>{{ food.favorite?'✔️':'❌'}}</td>
-      <td>{{ food.stars }}</td>
-      <td>{{ food.cookTime }} Min</td>
-      <td>{{ food.price | currency }}</td>
-      <td>{{ food.origins }}</td>
-      <td>{{ food.tags }}</td>
-      <td>
-
-        <button routerLink="edit/{{food.id}}" class="btn btn-success m-2" >
-        Edit
-      </button>
-      <a class="btn btn-danger m-2"  data-bs-toggle="modal" (click)="delete(food.id)">Delete</a>
-    </td>
-    </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">NAME</th>
+        <th scope="col">FAVORITE</th>
+        <th scope="col">RATING</th>
+        <th scope="col">COOK TIME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">ORIGINS</th>
+        <th scope="col">TAGS</th>
+        <th scope="col">OPERATIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let food of foodlist">
+        <th scope="row">{{ food.id }}</th>
+        <td><img width="50px" src="{{ food.imageUrl }}" alt="" /></td>
+        <td>{{ food.name }}</td>
+        <td>{{ food.favorite ? "✔️" : "❌" }}</td>
+        <td>{{ food.stars }}</td>
+        <td>{{ food.cookTime }} Min</td>
+        <td>{{ food.price | currency }}</td>
+        <td>{{ food.origins }}</td>
+        <td>{{ food.tags }}</td>
+        <td>
+          <button routerLink="edit/{{ food.id }}" class="btn btn-success m-2">Edit</button>
+          <a class="btn btn-danger m-2" data-bs-toggle="modal" (click)="delete(food.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

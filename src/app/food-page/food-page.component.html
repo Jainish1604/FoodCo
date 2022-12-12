@@ -1,46 +1,37 @@
-
-
 <div *ngIf="food" class="container">
-    <img [src]="food.imageUrl" [alt]="food.name" />
+  <img [src]="food.imageUrl" [alt]="food.name" />
 
-    <div class="details">
-        <div class="header">
-            <span class="name">
-                {{food.name}}
-            </span>
-            <span class="favorite {{food.favorite?'':'not'}}">
-                ❤
-            </span>
-        </div>
-        <div class="rating">
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{ food.name }}
+      </span>
+      <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span>
+    </div>
+    <div class="rating"></div>
 
-        </div>
-
-        <div class="origins">
-          
-          <span>
-              {{ food.origins}}
-          </span>
-          
-        </div>
-
-        <div class="Tags">
-            <span>
-                {{food.tags}}
-            </span>
-        </div>
-
-        <div class="cook-time">
-            <span>
-                Time to cook about <strong>{{food.cookTime}}</strong> minutes
-            </span>
-        </div>
-
-        <div class="price">
-            <span>{{food.price|currency}}</span>
-        </div>
-
-        <button (click)="addToCart()" >Add To Cart</button>
+    <div class="origins">
+      <span>
+        {{ food.origins }}
+      </span>
     </div>
 
+    <div class="Tags">
+      <span>
+        {{ food.tags }}
+      </span>
+    </div>
+
+    <div class="cook-time">
+      <span>
+        Time to cook about <strong>{{ food.cookTime }}</strong> minutes
+      </span>
+    </div>
+
+    <div class="price">
+      <span>{{ food.price | currency }}</span>
+    </div>
+
+    <button (click)="addToCart()">Add To Cart</button>
+  </div>
 </div>
