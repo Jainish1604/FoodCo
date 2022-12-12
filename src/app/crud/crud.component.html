@@ -18,23 +18,23 @@
       <th scope="col">PRICE</th>
       <th scope="col">ORIGINS</th>
       <th scope="col">TAGS</th>
-      <th scope="col">OPERATIONS      </th>
+      <th scope="col">OPERATIONS</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let food of foodlist;">
       <th scope="row">{{ food.id }}</th>
-      <td><img width="100px" src="{{ food.imageUrl }}" alt="" /></td>
+      <td><img width="50px" src="{{ food.imageUrl }}" alt="" /></td>
       <td>{{ food.name }}</td>
-      <td>{{ food.favorite?'Yes':'No'}}</td>
+      <td>{{ food.favorite?'✔️':'❌'}}</td>
       <td>{{ food.stars }}</td>
       <td>{{ food.cookTime }} Min</td>
       <td>{{ food.price | currency }}</td>
       <td>{{ food.origins }}</td>
       <td>{{ food.tags }}</td>
       <td>
-        <button (click)="Edit(food)" class="btn btn-success m-2" data-bs-toggle="modal"
-        data-bs-target="#exampleModal">
+
+        <button routerLink="edit/{{food.id}}" class="btn btn-success m-2" >
         Edit
       </button>
       <a class="btn btn-danger m-2"  data-bs-toggle="modal" (click)="delete(food.id)">Delete</a>

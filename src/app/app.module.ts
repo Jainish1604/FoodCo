@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import {ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
-import { EditFoodDetailsComponent } from './edit-food-details/edit-food-details.component';
+import { MlsComponent } from './mls/mls.component';
 
 
 
@@ -33,7 +33,7 @@ import { EditFoodDetailsComponent } from './edit-food-details/edit-food-details.
     NotFoundComponent,
     CrudComponent,
     AddFoodItemComponent,
-    EditFoodDetailsComponent
+    MlsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,9 @@ import { EditFoodDetailsComponent } from './edit-food-details/edit-food-details.
     BrowserAnimationsModule,
     ToastrModule.forRoot() 
   ],
-  providers: [],
+  providers: [
+    AddFoodItemComponent
+  ],
 
   bootstrap: [AppComponent]
 })

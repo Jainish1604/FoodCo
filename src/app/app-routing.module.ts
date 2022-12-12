@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CrudComponent } from './crud/crud.component';
 import { FoodPageComponent } from './food-page/food-page.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path:'tag/:tag', component:HomeComponent},
   {path:'food/:id', component:FoodPageComponent},
   {path:'cart-page', component: CartPageComponent},
-  {path:'Crud', component: CrudComponent}
+  {path:'Crud', component: CrudComponent},
+  { path: 'Crud/edit/:id', component:AddFoodItemComponent }
 ];
 
 @NgModule({

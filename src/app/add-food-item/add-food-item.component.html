@@ -1,8 +1,8 @@
 <div class="container my-5">
     <!-- Button trigger modal -->
-    <button (click)="switch()" type="button" class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#exampleModal">
-      Add New Menu Item
+    <button  type="button" class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#exampleModal"><h5 *ngIf="isAddMode">Add Item</h5>
+      <h5 *ngIf="!isAddMode">Edit Item</h5>
     </button>
       <!-- <app-add-food-item></app-add-food-item> -->
         <!--  Add and updata data Modal -->
@@ -10,12 +10,14 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add a item</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><h1 *ngIf="isAddMode">Add Food Item</h1>
+                  <h1 *ngIf="!isAddMode">Edit Food Item
+                  </h1></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form [formGroup]="AddFoodForm">
+            <form [formGroup]="AddFoodForm" (ngSubmit)="onSubmit()">
               <div class="mb-1">
                 <label for="Input1" class="form-label">Name</label>
                 <input type="text" class="form-control" formControlName="name" id="Input1" />
@@ -56,7 +58,7 @@
                 <label class="form-check-label" for="exampleCheck1">Favorite</label>
               </div>
           
-                <button type="submit" (click)="addFood()" class="btn btn-primary" data-bs-dismiss="modal">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
                   Submit
                 </button>
 

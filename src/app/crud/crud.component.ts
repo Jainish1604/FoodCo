@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  Validators,
+  Validators  
 } from '@angular/forms';
 import { FoodService } from '../services/food/food.service';
 import { NotificationService } from '../services/notification.service';
 import { CRUD } from './CRUD.model';
+import {AddFoodItemComponent } from '../add-food-item/add-food-item.component'
 
 @Component({
   selector: 'app-crud',
@@ -18,16 +19,17 @@ export class CrudComponent implements OnInit {
   foodlist: any;
   Editmode: boolean = false;
   Crudobj: CRUD = new CRUD();
-  constructor(private Fb: FormBuilder, private api: FoodService,private notify:NotificationService) {
+  constructor(private Fb: FormBuilder,
+    private api: FoodService,
+    private notify:NotificationService,
+    private upd:AddFoodItemComponent
+    ) {
     this.getAllFoodItems();
   }
   ngOnInit(): void {
 
   }
 
-  switch() {
-    this.Editmode = false;
-  }
   getAllFoodItems() {
     this.Editmode = false;
     this.api.getFood().subscribe({
@@ -37,13 +39,6 @@ export class CrudComponent implements OnInit {
     });
   }
 
-
-    // this.notify.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
-    // this.notify.showError("Data shown successfully !!", "ItSolutionStuff.com")
-    // this.notify.showWarning("Data shown successfully !!", "ItSolutionStuff.com")
-    // this.notify.showInfo("Data shown successfully !!", "ItSolutionStuff.com")
-
-// Delete Record
 
   delete(id: number) {
     if(window.confirm('Are sure you want to delete this item ?')){
@@ -57,35 +52,6 @@ export class CrudComponent implements OnInit {
       }
     }
 
-  Edit(id: any) {
+   
     
-
-    // this.Crudobj.id = row.id;
-    // this.form.controls['name'].setValue(row.name);
-    // this.form.controls['imageUrl'].setValue(row.imageUrl);
-    // this.form.controls['origins'].setValue(row.origins);
-    // this.form.controls['stars'].setValue(row.stars);
-    // this.form.controls['price'].setValue(row.price);
-    // this.form.controls['tags'].setValue(row.tags);
-    // this.form.controls['cookTime'].setValue(row.cookTime);
-    // this.form.controls['favorite'].setValue(row.favorite);
-    // this.Editmode = true;
-    // console.log(this.Editmode);
-  }
-
-  UpdatefoodDetails() {
-    this.Crudobj.name = this.form.value.name;
-    this.Crudobj.imageUrl = this.form.value.imageUrl;
-    this.Crudobj.origins = this.form.value.origins;
-    this.Crudobj.stars = this.form.value.stars;
-    this.Crudobj.price = this.form.value.price;
-    this.Crudobj.tags = this.form.value.tags;
-    this.Crudobj.cookTime = this.form.value.cookTime;
-    this.Crudobj.favorite = this.form.value.favorite;
-    this.api.Updatefood(this.Crudobj, this.Crudobj.id).subscribe((res) => {
-      // alert('Record updated Sucessfully');
-      this.getAllFoodItems();
-      this.form.reset();
-    });
-  }
 }
