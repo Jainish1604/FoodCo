@@ -1,6 +1,6 @@
  <div class="container my-5">
 
-  <app-add-food-item ></app-add-food-item>
+  <app-add-food-item></app-add-food-item>
 </div>
   
 <div class="container-fluid">
@@ -21,7 +21,7 @@
       <th scope="col">OPERATIONS</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody> 
     <tr *ngFor="let food of foodlist;">
       <th scope="row">{{ food.id }}</th>
       <td><img width="50px" src="{{ food.imageUrl }}" alt="" /></td>

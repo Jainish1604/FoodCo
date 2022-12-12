@@ -16,7 +16,6 @@ import { RouterModule } from '@angular/router';
 import {ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
-import { MlsComponent } from './mls/mls.component';
 
 
 
@@ -33,7 +32,6 @@ import { MlsComponent } from './mls/mls.component';
     NotFoundComponent,
     CrudComponent,
     AddFoodItemComponent,
-    MlsComponent,
   ],
   imports: [
     BrowserModule,
