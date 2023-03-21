@@ -11,8 +11,21 @@ import { CartItem } from '../shared/models/CartItem';
 })
 export class CartPageComponent implements OnInit {
   cart!: Cart;
-  constructor(private cartService: CartService) {
+  date = new Date().toLocaleDateString();
+  hidden=true
+  Orderdetails?:{
+    name:"ASDF",
+    email:"ASDF",
+    address:"ASDF",
+    city:"ASDF",
+    state:"ASDF",
+    pincode:"ASDF"
+  }
+  OrderCart:Cart=new Cart();
+  
+  constructor(private cartService: CartService,) {
     this.setCart();
+    this.OrderCart=this.cartService.OrderCart
   }
   ngOnInit(): void {
   }
@@ -23,7 +36,7 @@ export class CartPageComponent implements OnInit {
   }
   placedFromCart() {
     this.cartService.placedFromCart();
-    this.setCart();
+
   }
 
   changeQuantity(cartItem: CartItem, quantityInString: string) {
@@ -34,16 +47,26 @@ export class CartPageComponent implements OnInit {
 
   setCart() {
     this.cart = this.cartService.getCart();
+    console.log(this.cart)
   }
   placeOrder(F: NgForm) {
-    if (F.value.name && F.value.email && F.value.address !== '') {
+    if(F.valid){
+      
+      this.Orderdetails=F.value
+      this.hidden=false
+      console.log(this.OrderCart)
+      console.log(this.Orderdetails)
+      
+    }
+  
+    console.log(this.Orderdetails)
+    if (F.value.name && F.value.email && F.value.address && F.value.city && F.value.state && F.value.pincode !== '') {
       this.cartService.confirmOrder(F.value.name)
+      console.warn(this.cartService.OrderCart)
       this.placedFromCart()
       F.reset()
     } else {
       this.cartService.invlaidForm()
     }
-
   }
-
 }

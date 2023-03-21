@@ -10,13 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
   foods: any;
 
-  constructor(private api: FoodService, private route: ActivatedRoute) {
+  constructor(private api: FoodService) {
     this.api.getFood().subscribe((res:any)=>{
       this.foods=res
       // console.log(this.foods)
     });
    }
-
+   
    ngOnInit(): void {
    
   }

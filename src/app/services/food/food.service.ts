@@ -14,28 +14,24 @@ url=environment.apiURL
   constructor(private http:HttpClient) {
   }
   getFood(){
-    // console.log(this.http.get(this.url))
     return this.http.get(this.url);
   }
-
-  getById(id: number) {
-    return this.http.get<Food>(`${this.url}/${id}`);
-}
-
-
+  getById(data: any) {
+    return this.http.get(this.url+'/'+data.id);
+  }
   postFood(data:any){
     return this.http.post(this.url,data);
   }
-  deletefood(id: number) {
+  deletefood(id: any) {
     return this.http.delete(this.url+'/'+id)
   }
-  Updatefood(data:any,id: number) {
-    return this.http.put<any>(this.url+'/'+id,data)
+  Updatefood(id:number ,data : any) {
+    return this.http.put(this.url+'/'+id,data);
   }
   getFoodbyID(id:number){
     return this.http.get(this.url+'/'+id)
   }
-  searchitem(item:string){
+  searchitem( item:string){
     return this.http.get(`${this.url}?q=${item}`)
   }
   getAllTags(): Tag[] {
@@ -48,5 +44,4 @@ url=environment.apiURL
       { name: 'Soup', count: 1 },
     ]; 
   }
-
 }

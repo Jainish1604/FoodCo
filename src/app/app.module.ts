@@ -15,36 +15,34 @@ import { HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import {ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    SearchComponent,
-    TagsComponent,
-    FoodPageComponent,
-    CartPageComponent,
-    NotFoundComponent,
-    CrudComponent,
-    AddFoodItemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot() 
-  ],
-  providers: [
-    AddFoodItemComponent
-  ],
-
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+        SearchComponent,
+        TagsComponent,
+        FoodPageComponent,
+        CartPageComponent,
+        NotFoundComponent,
+        CrudComponent,
+    ],
+    providers: [
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        SharedModule,
+    ]
 })
 export class AppModule { }

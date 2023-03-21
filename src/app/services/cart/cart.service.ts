@@ -9,10 +9,11 @@ import { NotificationService } from '../notification.service';
 })
 export class CartService {
   constructor(private notify:NotificationService){
-
   }
   private cart:Cart = new Cart();
   emptycart:Cart=new Cart();
+  OrderCart:Cart=new Cart();
+  
   addToCart(food: Food):void{
     this.emptycart=this.cart
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
@@ -21,6 +22,7 @@ export class CartService {
       return;
     }
     this.cart.items.push(new CartItem(food));
+    this.OrderCart.items.push(new CartItem(food));
     this.notify.showSuccess('Order added to cart','FoodMine')
   }
 
@@ -31,7 +33,6 @@ export class CartService {
   }
   placedFromCart(): void{
     for (let index = 0; index <= this.cart.items.length + 1 ; index++) {
-      console.warn(index)
       this.cart.items.pop()
     }
   }
@@ -48,6 +49,7 @@ export class CartService {
   confirmOrder(Name:string){
     this.notify.showSuccess('Mr/Ms '+Name+' Your order has been placed, It will shortly dilivered to given address.','FoodMine')
   }
+  
   invlaidForm(){
     this.notify.showError('Please Fill the Form','FoodMine')
   }

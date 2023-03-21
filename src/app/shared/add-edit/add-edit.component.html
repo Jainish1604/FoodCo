@@ -1,0 +1,55 @@
+<div class="conatiner p-3">
+    <h5 class="modal-title" id="exampleModalLabel">
+        <h1 *ngIf="isAddMode">Add Food Item</h1>
+        <h1 *ngIf="!isAddMode">Edit Food Item
+        </h1>
+    </h5>
+    <form [formGroup]="AddFoodForm" (ngSubmit)="OnSubmit()" >
+        <div class="mb-1">
+            <label for="Input1" class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="Input1" />
+        </div>
+        <div class="mb-1">
+            <label for="Input7" class="form-label">Image Url</label>
+            <input type="text" class="form-control" formControlName="imageUrl" value="'/assest/img.jpg'" id="Input7" />
+        </div>
+        <div class="mb-2">
+            <label for="Input2" class="form-label">Origin</label>
+            <input type="text" class="form-control" formControlName="origins" id="Input2" />
+        </div>
+        <div class="mb-2">
+            <label for="Input3" class="form-label">Price in $</label>
+            <input type="number" class="form-control" formControlName="price" id="Input3" />
+        </div>
+        <div class="mb-2">
+            <label for="Input4" class="form-label">Cook Time</label>
+            <input type="text" class="form-control" formControlName="cookTime" id="Input4" />
+        </div>
+        <div class="mb-2">
+            <label for="Input5" class="form-label">Rating</label>
+            <select formControlName="stars" class="form-control" id="Input5">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="mb-2">
+            <label for="Input6" class="form-label">Tags</label>
+            <input type="text" class="form-control" formControlName="tags" id="Input6" />
+        </div>
+        <div class="mb-2 ">
+            <label class="form-label" for="exampleCheck1">Favorite</label>
+            <input type="text" class="form-control" formControlName="favorite" id="exampleCheck1" />
+        </div>
+
+
+        <button type="submit"  class="btn btn-primary ">
+            Save
+        </button>
+        <button type="button" class="btn btn-secondary mx-3" (click)="close()">
+            Close
+        </button>
+    </form>
+</div>

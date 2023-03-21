@@ -1,93 +1,187 @@
 <app-not-found [visible]="!cart || cart.items.length <= 0" notFoundMessage="Cart Page Is Empty!"
-    resetLinkText="Go To Homepage"></app-not-found>
+  resetLinkText="Go To Homepage"></app-not-found>
 
-<div *ngIf="cart && cart.items.length > 0" class="container">
+
+<div class="container">
+
+  <div *ngIf="cart && cart.items.length > 0" class="container">
     <ul>
-        <li *ngFor="let cartItem of cart.items">
-            <div>
-                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
-            </div>
-            <div>
-                <a routerLink="/food/{{ cartItem.food.id }}">
-                    {{ cartItem.food.name }}
-                </a>
-            </div>
-
-            <div>
-                <select #quantitySelect (change)="changeQuantity(cartItem, quantitySelect.value)">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-            <div>
-                {{ cartItem.price | currency }}
-            </div>
-
-            <div>
-                <button class="remove-button" (click)="removeFromCart(cartItem)">
-                    Remove
-                </button>
-            </div>
-        </li>
-    </ul>
-
-    <div class="checkout">
-        <div class="span">Order Summary</div>
+      <li *ngFor="let cartItem of cart.items">
         <div>
-            <div class="foods-count">{{ cart.items.length }}</div>
-            <div class="total-price">{{ cart.totalPrice | currency }}</div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Place my order
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                Modal title
-                            </h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form #myForm="ngForm" (ngSubmit)="placeOrder(myForm)">
-                                <div class="mb-2">
-                                    <div id="emailHelp" class="form-text">
-                                        To place your order please fill the form below
-                                    </div>
-                                    <label for="exampleInputEmail1" class="form-label">Name</label>
-                                    <input type="text" class="form-control" ngModel name="name" #name required
-                                        name="name" />
-                                </div>
-                                <div class="mb-2">
-                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="text" class="form-control" ngModel #email required name="email" />
-                                </div>
-                                <div class="mb-2">
-                                    <label for="exampleInputPassword1" class="form-label">Address</label>
-                                    <input type="text" class="form-control" ngModel #address required name="address"
-                                        id="exampleInputPassword1" />
-                                </div>
-
-                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
-                                    Place My Order
-                                </button>
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="total-price">{{ cart.totalPrice | currency }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
         </div>
+        <div>
+          <a routerLink="/food/{{ cartItem.food.id }}">
+            {{ cartItem.food.name }}
+          </a>
+        </div>
+        
+        <div>
+          <select #quantitySelect (change)="changeQuantity(cartItem, quantitySelect.value)">
+            <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      
+      <div>
+        {{ cartItem.price | currency }}
+      </div>
+      
+      <div>
+        <button class="remove-button" (click)="removeFromCart(cartItem)">
+          Remove
+        </button>
+      </div>
+    </li>
+  </ul>
+  
+  <div class="container rounded border checkout">
+    <h2>Order Summary</h2>
+    <div>
+      <div class="my-2">Count : {{ cart.items.length }}</div>
+      <div class="my-2">Total Price : {{ cart.totalPrice | currency }}</div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Place my order
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form #myForm="ngForm" (ngSubmit)="placeOrder(myForm)">
+                <div class="mb-2">
+                  <div id="emailHelp" class="form-text">
+                    To place your order please fill the form below
+                  </div>
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input type="text" class="form-control" ngModel name="name" #name required />
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="text" class="form-control" ngModel #email required name="email" />
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputPassword1" class="form-label">Address</label>
+                  <textarea type="text" class="form-control" ngModel #address required name="address"
+                  id="exampleInputPassword1"></textarea>
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputPassword1" class="form-label">City</label>
+                  <input type="text" class="form-control" ngModel #city required name="city"
+                  id="exampleInputPassword1" />
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputPassword1" class="form-label">State
+                  </label>
+                  <input type="text" class="form-control" ngModel #State required name="state"
+                  id="exampleInputPassword1" />
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputPassword1" class="form-label">PinCode
+                  </label>
+                  <input type="text" class="form-control" ngModel #pincode required name="pincode"
+                  id="exampleInputPassword1" />
+                </div>
+                
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                  Place My Order
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <div class="total-price">{{ cart.totalPrice | currency }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  
+  <div [hidden]="hidden" class="container border text-center row rounded text-center">
+    <div class="col-12 text-center">
+      <div class="flex-row p-2">
+        <div class="d-flex flex-column">
+          <h2 class="font-weight-bold">Order Summary</h2>
+          <span>{{ date }}</span>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+    <table class="table table-borderless">
+      <tbody>
+        <tr class="add">
+          <td>Ordered By
+            <h3>{{ Orderdetails?.name }}</h3>
+            <span>Address:{{ Orderdetails?.address }} ,
+              {{ Orderdetails?.city }}</span>
+              <span>
+                <br />
+                Pincode:{{ Orderdetails?.pincode }}</span>
+                &nbsp;
+                <span>State:{{ Orderdetails?.state }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <hr />
+  <div class="products p-2">
+    <table class="table table-light">
+      <thead>
+        <tr>
+          <td scope="col">Product List</td>
+          <td scope="col">Price</td>
+          <td scope="col">Quantity</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content" *ngFor="let cartItem of OrderCart.items">
+          <td>
+            <img width="50px" [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
+            {{ cartItem.food.name }}
+          </td>
+
+          <td>
+            {{ cartItem.price | currency }}
+          </td>
+          <td class="text-center">{{ cartItem.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr />
+  <div class="products p-2">
+    <table class="table table-borderless">
+      <tbody>
+        <tr class="add">
+          <td class="text-center">
+            <h3>Total Price</h3>
+          </td>
+        </tr>
+        <tr class="content">
+          <td class="text-center">
+            <div class="total-price">{{ OrderCart.totalPrice | currency }}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr />
+</div>
 </div>

@@ -30,7 +30,7 @@
       "price": 10,
       "cookTime": "10-30",
       "stars": "2",
-      "favorite": false,
+      "favorite": true,
       "id": 3
     },
     {
@@ -41,7 +41,7 @@
       "price": 15,
       "cookTime": "10-30",
       "stars": "3",
-      "favorite": false,
+      "favorite": true,
       "id": 4
     },
     {
@@ -52,7 +52,7 @@
       "price": 15,
       "cookTime": "10-30",
       "stars": "3",
-      "favorite": false,
+      "favorite": true,
       "id": 5
     },
     {
@@ -63,7 +63,7 @@
       "price": 15,
       "cookTime": "10-30",
       "stars": "5",
-      "favorite": true,
+      "favorite": false,
       "id": 6
     },
     {
@@ -92,11 +92,11 @@
       "name": "Miso Ramen",
       "imageUrl": "/assets/ramen2.jpg",
       "origins": "Konoha",
-      "tags": "Ramen",
+      "tags": "pasta",
       "price": 5,
       "cookTime": "10-30",
       "stars": "2",
-      "favorite": false,
+      "favorite": true,
       "id": 9
     },
     {
@@ -106,9 +106,20 @@
       "tags": "Ramen",
       "price": 10,
       "cookTime": "10-30",
-      "stars": "5",
+      "stars": "1",
       "favorite": true,
       "id": 10
+    },
+    {
+      "name": "Ichiraku Jainish",
+      "imageUrl": "assets/ramen3.jpg",
+      "origins": "Japan",
+      "tags": "Ramen",
+      "price": 10,
+      "cookTime": "10-20",
+      "stars": "3",
+      "favorite": true,
+      "id": 11
     }
   ]
 }

@@ -13,21 +13,26 @@ export class FoodPageComponent implements OnInit {
   id!: number;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private foodService: FoodService,
+    private api: FoodService,
     private cartService: CartService,
     private router: Router
     )
   {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    this.foodService.getFoodbyID(this.id).subscribe((data:any) => {
-      this.food=data
-      // console.warn(data);
-    });
-
+this.getmethod()    
   }
 
+  // Getting id and bringing the record
+  getmethod(){
+    this.id = this.activatedRoute.snapshot.params['id'];
+    this.api.getFoodbyID(this.id).subscribe({
+      next: (res: any) => {
+        this.food = res;
+      },
+    });
+  } 
+  //ADD THIS DATA TO CART
   addToCart(){
     this.cartService.addToCart(this.food);
     this.router.navigateByUrl('/cart-page');
