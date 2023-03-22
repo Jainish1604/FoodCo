@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   title: 'Local Environment Heading',
-  apiURL: 'http://localhost:5131/api/Food'
-  // apiURL: 'http://localhost:5000/FoodItem'
+  // apiURL: 'http://localhost:5131/api/Food'
+  apiURL: 'http://localhost:5000/FoodItem'
 
 };
 /*
